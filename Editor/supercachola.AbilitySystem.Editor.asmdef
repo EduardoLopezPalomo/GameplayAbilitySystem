@@ -1,0 +1,18 @@
+{
+    "name": "supercachola.AbilitySystem.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:30b0fe2ad4b06de4782781cd7f93df4f"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

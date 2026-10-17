@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5145f5391f085d148a63f84967d19e21, type: 3}
+  m_Name: Poison
+  m_EditorClassIdentifier: supercachola.AbilitySystem.Runtime::supercachola.AbilitySystem.Effects.GameplayEffectDefinition
+  durationPolicy: 1
+  duration: 5
+  period: 1
+  executeOnApplication: 1
+  modifiers:
+  - attributeTag:
+      name: Attribute.Health
+    operation: 0
+    magnitudeType: 2
+    magnitude: -10
+    captureFrom: 0
+    capturedAttribute:
+      name: 
+    coefficient: 0
+    setByCallerTag:
+      name: Data.Damage
+  executions: []
+  stackingPolicy: 2
+  stackScope: 0
+  maxStacks: 3
+  refreshDurationOnStack: 1
+  effectTags:
+    tagNames: []
+  grantedTags:
+    tagNames:
+    - State.Poisoned
+  applicationRequiredTags:
+    tagNames: []
+  applicationBlockedTags:
+    tagNames: []
+  removeEffectsWithTags:
+    tagNames: []
+  grantedImmunityTags:
+    tagNames: []
+  ongoingRequiredTags:
+    tagNames: []
+  ongoingBlockedTags:
+    tagNames: []
+  cueTags:
+  - name: GameplayCue.Poison

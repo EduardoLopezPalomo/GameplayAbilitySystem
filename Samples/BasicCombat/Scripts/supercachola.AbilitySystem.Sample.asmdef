@@ -1,0 +1,25 @@
+{
+    "name": "supercachola.AbilitySystem.Sample",
+    "rootNamespace": "",
+    "references": [
+        "GUID:30b0fe2ad4b06de4782781cd7f93df4f",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "ABILITY_SAMPLE_INPUTSYSTEM"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.inputsystem",
+            "expression": "1.0.0",
+            "define": "ABILITY_SAMPLE_INPUTSYSTEM"
+        }
+    ],
+    "noEngineReferences": false
+}

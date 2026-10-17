@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24cfbb73a33242d4f826e8167b4f8a77, type: 3}
+  m_Name: AttackAbility
+  m_EditorClassIdentifier: Assembly-CSharp::AttackAbilityDefinition
+  abilityTag:
+    name: Ability.Attack
+  displayName: 
+  icon: {fileID: 0}
+  description: 
+  costEffect: {fileID: 0}
+  cooldownEffect: {fileID: 11400000, guid: b0020814f3d21654da4d0f51e24878cc, type: 2}
+  commitOnActivate: 1
+  activationOwnedTags:
+    tagNames:
+    - State.Attack
+  activationRequiredTags:
+    tagNames: []
+  activationBlockedTags:
+    tagNames:
+    - State.Attack
+  cancelAbilitiesWithTags:
+    tagNames: []
+  triggerEventTags:
+    tagNames: []
+  allowReactivationWhileActive: 0
+  effectsToSelf: []
+  startRotation: 50
+  endRotation: -50
+  attackSpeed: 200
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  damageEffectAttributeBase: {fileID: 11400000, guid: 466adb44d2399914b8598dc09663b979, type: 2}
+  invulnerabilityEffect: {fileID: 11400000, guid: bbc5f61d35072154babb47f9c7562d5a, type: 2}

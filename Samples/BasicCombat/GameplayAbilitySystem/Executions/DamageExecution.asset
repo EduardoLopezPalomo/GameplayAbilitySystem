@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b56981920091504c95b61ed3482ad4a, type: 3}
+  m_Name: DamageExecution
+  m_EditorClassIdentifier: Assembly-CSharp::supercachola.AbilitySystem.Effects.DamageExecution
+  attackAttribute:
+    name: Attribute.Attack
+  defenseAttribute:
+    name: Attribute.Defense
+  resistanceAttribute:
+    name: Attribute.Resistance
+  healthAttribute:
+    name: Attribute.Health
+  attackMultiplier: 1
+  minimumDamage: 1
+  critChance: 0.5
+  critMultiplier: 2
