@@ -64,7 +64,7 @@ public class Example : UnityEngine.MonoBehaviour
 ```
 
 For a complete walkthrough, import the **Basic Combat** sample from the Package Manager
-(*Samples > Import*) and read `Documentation~/GettingStarted.md`.
+(*Samples > Import*) and read `Documentation/GettingStarted.md`.
 
 ## Documentation
 
