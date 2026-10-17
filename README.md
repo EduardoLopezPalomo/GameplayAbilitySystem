@@ -68,7 +68,7 @@ For a complete walkthrough, import the **Basic Combat** sample from the Package 
 
 ## Documentation
 
-Start with **[Getting Started](Documentation~/GettingStarted.md)**: it runs and then rebuilds the Basic Combat sample step by step.
+Start with **[Getting Started](Documentation/GettingStarted.md)**: it runs and then rebuilds the Basic Combat sample step by step.
 
 | Topic | |
 |---|---|
