@@ -291,7 +291,7 @@ namespace supercachola.AbilitySystem
 
             attributes = new AttributeSet(attributeSets);
             ownedTags = new GameplayTagCountContainer();
-            effects = new ActiveEffectContainer(attributes, ownedTags);
+            effects = new ActiveEffectContainer(attributes, ownedTags, this);
             cues = new GameplayCueRunner(this, cueLibrary);
             effects.Cues = cues;
             abilities = new AbilityContainer(this);

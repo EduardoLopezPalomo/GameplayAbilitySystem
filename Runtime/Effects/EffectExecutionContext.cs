@@ -10,6 +10,7 @@ namespace supercachola.AbilitySystem.Effects
     public readonly struct EffectExecutionContext
     {
         public GameplayEffectSpec Spec { get; }
+        public AbilitySystemComponent Target { get; }
         public AttributeSet TargetAttributes { get; }
         public GameplayTagCountContainer TargetTags { get; }
         public AttributeSet InstigatorAttributes { get; }
@@ -17,9 +18,10 @@ namespace supercachola.AbilitySystem.Effects
         
         public int StackCount { get; }
 
-        internal EffectExecutionContext(in GameplayEffectSpec spec, AttributeSet targetAttributes, GameplayTagCountContainer targetTags,  int stackCount)
+        internal EffectExecutionContext(in GameplayEffectSpec spec, AbilitySystemComponent target, AttributeSet targetAttributes, GameplayTagCountContainer targetTags,  int stackCount)
         {
             Spec = spec;
+            Target = target;
             TargetAttributes = targetAttributes;
             TargetTags = targetTags;
             StackCount = stackCount;
@@ -61,6 +63,13 @@ namespace supercachola.AbilitySystem.Effects
 
             value = 0f;
             return false;
+        }
+
+        /// <summary>Plays a cue once on the character that receives the effect. Does nothing if there is no target.</summary>
+        public void ExecuteCue(GameplayTag cue, float magnitude = 0f)
+        {
+            if (Target != null)
+                Target.ExecuteCue(cue, magnitude);
         }
     }
 }

@@ -28,6 +28,7 @@ namespace supercachola.AbilitySystem.Effects
 
         private readonly AttributeSet attributes;
         private readonly GameplayTagCountContainer ownedTags;
+        private readonly AbilitySystemComponent owner;
 
         // Immunity tags granted by the active effects.
         private readonly GameplayTagCountContainer immunityTags = new GameplayTagCountContainer();
@@ -63,10 +64,11 @@ namespace supercachola.AbilitySystem.Effects
         /// </summary>
         public event Action<GameplayEffectSpec> EffectApplied;
 
-        public ActiveEffectContainer(AttributeSet attributes, GameplayTagCountContainer ownedTags)
+        public ActiveEffectContainer(AttributeSet attributes, GameplayTagCountContainer ownedTags, AbilitySystemComponent owner)
         {
             this.attributes = attributes ?? throw new ArgumentNullException(nameof(attributes));
             this.ownedTags = ownedTags ?? throw new ArgumentNullException(nameof(ownedTags));
+            this.owner = owner ?? throw new ArgumentNullException(nameof(owner));
 
             // Both live as long as the character, so this needs no unsubscribing.
             this.ownedTags.TagsChanged += OnOwnedTagsChanged;
@@ -837,7 +839,7 @@ namespace supercachola.AbilitySystem.Effects
         {
             float cueMagnitude = 0f;
             var executions = effect.Executions;
-            var context = new EffectExecutionContext(spec, attributes, ownedTags, stacks);
+            var context = new EffectExecutionContext(spec, owner, attributes, ownedTags, stacks);
 
             ExecutionOutput output = RentOutput();
             try
