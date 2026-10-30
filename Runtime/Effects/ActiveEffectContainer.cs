@@ -446,7 +446,8 @@ namespace supercachola.AbilitySystem.Effects
             // Executions run after the modifiers.
             if (effect.HasExecutions)
             {
-                RunExecutions(effect, spec, 1);
+                float executionMagnitued = RunExecutions(effect, spec, 1);
+                cueMagnitude = executionMagnitued != 0 ? executionMagnitued : cueMagnitude;
                 anyApplied = true;
             }
 
@@ -822,14 +823,19 @@ namespace supercachola.AbilitySystem.Effects
 
             // Executions are calculated again in every period.
             if (IsOn(effect) && effect.Definition.HasExecutions)
-                RunExecutions(effect.Definition, effect.Spec, stacks);
+            {
+                float executionMagnitude = RunExecutions(effect.Definition, effect.Spec, stacks);
+                cueMagnitude = executionMagnitude != 0 ? executionMagnitude : cueMagnitude;
+            }
+               
             
             if (IsOn(effect) && effect.Definition.HasCues)
                 Cues?.ExecuteEach(effect.Definition.CueTags, effect.Instigator, cueMagnitude);
         }
 
-        private void RunExecutions(GameplayEffectDefinition effect, in GameplayEffectSpec spec, int stacks)
+        private float RunExecutions(GameplayEffectDefinition effect, in GameplayEffectSpec spec, int stacks)
         {
+            float cueMagnitude = 0f;
             var executions = effect.Executions;
             var context = new EffectExecutionContext(spec, attributes, ownedTags, stacks);
 
@@ -844,6 +850,10 @@ namespace supercachola.AbilitySystem.Effects
 
                     output.Clear();
                     execution.Execute(context, output);
+
+                    for (int e = 0; e < output.Entries.Count; e++)
+                        cueMagnitude += output.Entries[e].Magnitude;
+                    
                     ApplyOutput(effect, output);
                 }
             }
@@ -851,6 +861,8 @@ namespace supercachola.AbilitySystem.Effects
             {
                 ReturnOutput(output);
             }
+            
+            return cueMagnitude;
         }
 
         private void ApplyOutput(GameplayEffectDefinition effect, ExecutionOutput output)
