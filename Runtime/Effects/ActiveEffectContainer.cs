@@ -445,7 +445,7 @@ namespace supercachola.AbilitySystem.Effects
                 anyApplied = true;
             }
 
-            // Executions run after the modifiers.
+            // Executions run after the modifiers and his magnitude has priority over modifiers.
             if (effect.HasExecutions)
             {
                 float executionMagnitued = RunExecutions(effect, spec, 1);
@@ -853,8 +853,9 @@ namespace supercachola.AbilitySystem.Effects
                     output.Clear();
                     execution.Execute(context, output);
 
-                    for (int e = 0; e < output.Entries.Count; e++)
-                        cueMagnitude += output.Entries[e].Magnitude;
+                    //Only returns the magnitude of the first execution
+                    if(i==0)
+                        cueMagnitude += output.Entries[i].Magnitude;
                     
                     ApplyOutput(effect, output);
                 }
